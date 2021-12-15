@@ -1,6 +1,6 @@
 import './setup';
 
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import 'reflect-metadata';
 
@@ -11,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/is-live', (req: Request, res: Response) => res.status(200).send("I'm Alive"));
 app.get('/users', userController.getUsers);
 
 export async function init() {
