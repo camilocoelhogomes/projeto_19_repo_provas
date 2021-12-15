@@ -1,12 +1,17 @@
-import { Request, Response } from "express";
-import { getRepository } from "typeorm";
+import { getRepository } from 'typeorm';
 
-import User from "../entities/User";
+import User from '../entities/User';
 
-export async function getUsers () {
+async function getUsers() {
   const users = await getRepository(User).find({
-    select: ["id", "email"]
+    select: ['id', 'email'],
   });
-  
+
   return users;
 }
+
+const userService = {
+  getUsers,
+};
+
+export default userService;
