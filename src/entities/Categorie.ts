@@ -1,13 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('users')
-export default class User {
+export default class Categorie {
   @PrimaryGeneratedColumn()
     id: number;
 
   @Column()
-    email: string;
+    name: string;
 
-  @Column()
-    password: string;
 }
