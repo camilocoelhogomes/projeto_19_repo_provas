@@ -1,4 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity, PrimaryGeneratedColumn, Column, OneToMany,
+} from 'typeorm';
+import { TeacherInterfaces } from '../interfaces/teacherInterfaces';
+import DisciplineTeacher from './DisciplineTeacher';
 
 @Entity('discipline')
 export default class Discipline {
@@ -7,4 +11,7 @@ export default class Discipline {
 
   @Column()
     name: string;
+
+  @OneToMany(() => DisciplineTeacher, (disciplineTeacher) => disciplineTeacher.discipline)
+    teacherDiscipline: TeacherInterfaces[];
 }
