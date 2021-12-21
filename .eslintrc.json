@@ -23,6 +23,7 @@
       "max-len": [
         "off"
       ],
+      "import/no-cycle": ["off"],
       "import/extensions": [
         "error",
         {

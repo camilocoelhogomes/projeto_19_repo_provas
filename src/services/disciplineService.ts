@@ -4,7 +4,9 @@ import { DisciplineInterfaces } from '../interfaces/disciplineInterfaces';
 
 const getDiscipline = async (): Promise<DisciplineInterfaces[] | null> => {
   try {
-    const result = await getRepository(Discipline).find();
+    const result = await getRepository(Discipline).find({
+      relations: ['teacher'],
+    });
     return result;
   } catch (error) {
     return null;
